@@ -1,0 +1,18 @@
+<div controller="signupCtrl" class="signup-page">
+	<ion-content>
+		<div class="logo">
+			AugWar
+		</div>
+		<label class="item-username item-input">
+ 		 	<span class="input-label">Email</span>
+  			<input type="email" ng-model="user.email">
+		</label>
+        <label class="item-password item-input">
+  			<span class="input-label">Password</span>
+  			<input type="password" ng-model="user.password">
+		</label>
+      <div class="signup-button">
+      <button class="button button-dark login" ng-click="signup(user)">Sign up</button>
+      </div>
+	</ion-content>
+</div>

@@ -1,0 +1,56 @@
+<div controller="createCharacterCtrl" class="create-character-page">
+	<ion-content>
+		<div class="logo">
+			Welcome to AugWar!
+		</div>
+		<label class="item-name item-input">
+ 		 	<span class="input-label">Character Name</span>
+  			<input type="text" ng-model="character.name">
+		</label>
+		<div class="row">
+   			<div class = "col col-50 input-label">
+      			Character Type <i class = "icon ion-information-circled" ng-click="openCharacterInfo()"></i>
+   			</div>
+   			<div class="col col-50">
+	   			<select class="character-select" ng-model="character.type">
+	      			<option ng-repeat="type in characterTypes" >{{type}}</option>
+	   			</select>
+   			</div>
+   		</div>
+		<div class="stats">
+			<div class="stats-label">Base Stats</div><br>
+			<div class="row">
+				<div class="col col-50 skill">Attack: {{character.attack}}</div>
+				<div class="col col-offset-25 col-25">
+					<i class = "icon ion-minus-round" ng-click="subAttack()"></i>
+					<i class = "icon ion-plus-round" ng-click="addAttack()"></i>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-50 skill">Defense: {{character.defense}}</div>
+				<div class="col col-offset-25 col-25">
+					<i class = "icon ion-minus-round" ng-click="subDefense()"></i>
+					<i class = "icon ion-plus-round" ng-click="addDefense()"></i>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-50 skill">Speed: {{character.speed}}</div>
+				<div class="col col-offset-25 col-25">
+					<i class = "icon ion-minus-round" ng-click="subSpeed()"></i>
+					<i class = "icon ion-plus-round" ng-click="addSpeed()"></i>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-50 skill">Health: {{character.health}}</div>
+				<div class="col col-offset-25 col-25">
+					<i class = "icon ion-minus-round" ng-click="subHealth()"></i>
+					<i class = "icon ion-plus-round" ng-click="addHealth()"></i>
+				</div>
+			</div>
+			<div class="skill-points">Skill Points Remaining: {{character.skillPoints}}</div>
+		</div>
+		<div class="create-character-button">
+			<button class="button button-dark" ng-click="createCharacter()">Create Character</button>
+		</div>
+	</ion-content>
+</div>

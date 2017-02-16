@@ -1,0 +1,170 @@
+/*index.html*/
+.title{
+	vertical-align: center;
+}
+
+.logo{
+	text-align: center;
+	font-size: 200%;
+	margin-top:5%;
+}
+
+.item{
+	background-color: darkgray;
+}
+
+.select{
+	background:darkgray;
+}
+
+.input-label{
+	width:40%;
+}
+
+.bar-dark{
+	font-size: 200%;
+}
+
+.page{
+	margin-top: 15%
+}
+
+input{
+	text-align: right;
+}
+
+option{
+	background-color: darkgrey;
+	background: darkgrey;
+}
+
+/*LOGIN PAGE*/
+ion-content{
+	background-color: darkgray;
+}
+
+.login-page .logo{
+	text-align: center;
+	font-size: 200%;
+}
+
+.login-page .item-username{
+	border: 1px solid black;
+	margin-top: 5%;
+}
+
+.login-page .item-password{
+	border: 1px solid black;
+	margin-top: -1px;
+}
+
+.login-page .login-button{
+	text-align: center;
+	margin-top:5%;
+}
+
+.login-page .signup-button{
+	text-align: center;
+	margin-top: 40%;
+}
+
+.login-page .input-label{
+	width:25%;
+}
+
+/*SIGN UP PAGE*/
+
+.signup-page ion-content{
+	background-color: darkgray;
+}
+
+.signup-page .logo{
+	text-align: center;
+	font-size: 200%;
+	margin-top:5%;
+}
+
+.signup-page .item-username{
+	border: 1px solid black;
+	margin-top: 5%;
+}
+
+.signup-page .item-password{
+	border: 1px solid black;
+	margin-top: -1px;
+}
+
+.signup-page .signup-button{
+	text-align: center;
+	margin-top: 5%;
+}
+
+.signup-page .input-label{
+	width:25%;
+}
+
+/*CREATE CHARACTER PAGE*/
+.create-character-page .stats-label{
+	font-size: 200%;
+}
+
+.create-character-page .stats-label{
+	margin-top: 5%;
+	text-align: center;
+}
+
+.create-character-page .character-select{
+	width:100%;
+}
+
+.create-character-page .skill{
+	text-align: center;
+	font-size:150%;
+}
+
+.create-character-page .stats .icon{
+	font-size:175%;
+}
+
+.create-character-page .skill-points{
+	text-align: center;
+	font-size:150%;
+}
+
+.create-character-page .create-character-button{
+	text-align: center;
+	margin-top: 5%;
+}
+
+/*Current Zone*/
+
+.current-zone .zone-activity{
+	margin-top: 50px;
+	width:100vw;
+}
+
+.current-zone .zone-activity-label{
+	font-size: 2em;
+	text-align: center;
+	border-bottom: 1px solid black;
+}
+
+.current-zone .npc{
+	border-bottom: 1px solid black;
+	height:40px;
+}
+
+.current-zone .npc-name{
+	font-size: 20px;
+	margin-left: 10px;
+	margin-top: 3px;
+}
+
+.current-zone .talk{
+	margin-top: 10px;
+}
+
+
+.current-zone .attack{
+	margin-top: 10px;
+}

@@ -1,0 +1,19 @@
+<div controller="currentZoneCtrl" class="current-zone">
+	<div class="bar bar-header bar-dark" align-title="center">
+	  <h1 class="title">Current Zone</h1>
+	</div>
+	<ion-content>
+    <div class="zone-activity">
+      <div class="row row-100 zone-activity-label">Zone Activity</div>
+      <div class="row row-100 npc" ng-repeat="npc in zone.npcs" ng-if="npc.type == 'Person'">
+          <label class="col col-50 npc-name">{{npc.name}}</label>
+          <button class="talk" ng-click="talk(npc)">Talk</button>
+      </div>
+      <div class="row row-100 npc"  ng-repeat="npc in zone.npcs" ng-if="npc.type == 'Enemy'">
+          <label class="col col-50 npc-name">{{npc.name}}</label>
+          <button class="attack" ng-click="attack(npc)">Attack</button>
+      </div>
+    </div>
+	</ion-content>
+	<div ng-include="'views/tabs.html'"></div>
+</div>

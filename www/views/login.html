@@ -1,0 +1,25 @@
+<div controller="loginCtrl" class="login-page">
+	<div class="bar bar-header bar-dark" align-title="center">
+	  <h1 class="title">AugWar</h1>
+	</div>
+	
+	<ion-content scroll="false">
+		<div class="page">
+			<label class="item-username item-input">
+	 		 	<span class="input-label">Email</span>
+	  			<input type="email"  ng-model="user.email">
+			</label>
+	        <label class="item-password item-input">
+	  			<span class="input-label">Password</span>
+	  			<input type="password"  ng-model="user.password">
+			</label>
+			<div class="login-button">
+	      <button class="button button-dark login" ng-click="login()">Login</button>
+	      </div>
+	      <div class="signup-button">
+	      <button class="button button-dark login" ng-click="signup()">Sign up</button>
+	      </div>
+      <div>
+	</ion-content>
+	
+</div>
