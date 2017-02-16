@@ -23,11 +23,13 @@ app.run(function($ionicPlatform, $state) {
             StatusBar.styleDefault();
         }
 
-        
-        AWS.config.update({accessKeyId: 'AKIAILLFJKSF7LFEUNUQ', secretAccessKey: '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'});
         AWS.config.region = 'us-east-1';  //us-west-2 is Oregon
+        AWS.config.update({accessKeyId: 'AKIAILLFJKSF7LFEUNUQ', secretAccessKey: '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'});
+        AWS.config.update({region: 'us-east-1'});
 
-
+        var dd = new AWS.DynamoDB();
+        var s3 = new AWS.S3();
+                         
         $state.go('login');
     });
 });

@@ -36,6 +36,7 @@ app.controller('loginCtrl', function($scope, $rootScope, $stateParams, $state, d
     })
 
     $rootScope.getCurrentZone = function(callback){
+               //$cordovaGeolocation
 		navigator.geolocation.getCurrentPosition(function(pos){
 			var loc = pos;
 			var latRounded = Math.abs(Number(Math.round(pos.coords.latitude +'e2'))) % 2; //
