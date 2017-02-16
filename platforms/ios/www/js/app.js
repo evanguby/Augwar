@@ -24,7 +24,6 @@ app.run(function($ionicPlatform, $state) {
         }
 
         
-        AWS.config.update({accessKeyId: 'AKIAILLFJKSF7LFEUNUQ', secretAccessKey: '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'});
         AWS.config.region = 'us-east-1';  //us-west-2 is Oregon
 
 
