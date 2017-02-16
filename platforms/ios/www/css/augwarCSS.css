@@ -60,7 +60,7 @@ ion-content{
 
 .login-page .login-button{
 	text-align: center;
-	margin-top: 5%;
+	margin-top:5%;
 }
 
 .login-page .signup-button{
@@ -134,4 +134,37 @@ ion-content{
 .create-character-page .create-character-button{
 	text-align: center;
 	margin-top: 5%;
+}
+
+/*Current Zone*/
+
+.current-zone .zone-activity{
+	margin-top: 50px;
+	width:100vw;
+}
+
+.current-zone .zone-activity-label{
+	font-size: 2em;
+	text-align: center;
+	border-bottom: 1px solid black;
+}
+
+.current-zone .npc{
+	border-bottom: 1px solid black;
+	height:40px;
+}
+
+.current-zone .npc-name{
+	font-size: 20px;
+	margin-left: 10px;
+	margin-top: 3px;
+}
+
+.current-zone .talk{
+	margin-top: 10px;
+}
+
+
+.current-zone .attack{
+	margin-top: 10px;
 }

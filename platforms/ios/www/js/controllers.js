@@ -25,14 +25,59 @@ app.controller('loginCtrl', function($scope, $rootScope, $stateParams, $state, d
 		dbControl.readTable(readparams, function(result){
 			if(result.Item.password == user.password){
 				userData.setEmail(user.email);
-				if(result.Item.character_name == null){
+				if(result.Item.characterName == null){
 					$state.go('createCharacter');
 				} else {
+
 					$state.go('currentZone');
 				}
 			}
 		})
     })
+
+    $rootScope.getCurrentZone = function(callback){
+		navigator.geolocation.getCurrentPosition(function(pos){
+			var loc = pos;
+			var latRounded = Math.abs(Number(Math.round(pos.coords.latitude +'e2'))) % 2; //
+			var longRounded = Math.abs(Number(Math.round(pos.coords.longitude +'e2'))) % 2; //
+			var min = 1;
+			var max = 2;
+			//Math.seedrandom(latRounded);
+			var zoneIDLat = latRounded
+			//Math.seedrandom(longRounded);
+			var zoneIDLong = longRounded
+
+			var readparams = {
+		    	TableName: 'Zone',
+				  Key: {
+				    zoneid: zoneIDLat + ',' + zoneIDLong
+				  }
+			  
+			};
+
+			$rootScope.zone = {};
+			$rootScope.zone.npcs = [];
+			dbControl.readTable(readparams, function(result){
+				$rootScope.zone.id = result.zoneid;
+				var npcs = result.Item.NPCs.split(',')
+				for(var i = 0; i < npcs.length; i++){
+					var readparams = {
+		    			TableName: 'NPCs',
+						Key: {
+						  npcid: parseInt(npcs[i])
+						}
+					}
+		  			dbControl.readTable(readparams, function(result){
+		  				$rootScope.zone.npcs.push(result.Item);
+		  				if($rootScope.zone.npcs.length == npcs.length){
+		  					callback();
+		  				}
+		  			})
+				}
+				
+			})
+	 	})
+	 }
 })
 
 .controller('signupCtrl', function($scope, $rootScope, $stateParams, $state, dbControl) {
@@ -148,11 +193,14 @@ app.controller('loginCtrl', function($scope, $rootScope, $stateParams, $state, d
 			Item: {
 				name: $scope.character.name,
 			  	level: 1,
+			  	type: $scope.character.type,
 			    attack: $scope.character.attack,
 			    defense: $scope.character.defense,
 			    speed: $scope.character.speed,
 			    health: $scope.character.health,
-			    energy: 100
+			    energy: 100,
+			    expierence: 0,
+			    quest1: "step:0,count:0"
 			}
 		}
 
@@ -163,15 +211,38 @@ app.controller('loginCtrl', function($scope, $rootScope, $stateParams, $state, d
 					email: userData.getEmail()
 				},
 				AttributeUpdates: {
-					character_name: {
+					characterName: {
 		            	Action: 'PUT', 
 		                Value: $scope.character.name
 		        	}
 				}
 			}
-			dbControl.updateItem(params, function(){
 
+			dbControl.updateItem(params, function(){
+					
 			})
+
+			$rootScope.$broadcast('getCurrentZone');
+			state.go('currentZone');
 		});
     };
+})
+
+.controller('currentZoneCtrl', function($scope, $rootScope, $stateParams, $state, dbControl) {
+	$scope.people = [];
+	$scope.enemies = [];
+	
+	$rootScope.getCurrentZone(function(){
+		$scope.zone = $rootScope.zone;
+		$scope.$apply();
+	});
+
+	$scope.talk = function(npc){
+		$rootScope.selectedNPC = npc;
+		state.go('talkNPC');
+	}
+})
+
+.controller('talkNPCCtrl', function($scope, $rootScope, $stateParams, $state, dbControl) {
+	$scope.npc = $rootScope.selectedNPC;
 });

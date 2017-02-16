@@ -26,6 +26,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller: "currentZoneCtrl"
     })
 
+    .state('talkNPC', {
+      url: "/talkNPC",
+      templateUrl: "views/talkNPC.html",
+      controller: "talkNPCCtrl"
+    })
+
   $urlRouterProvider.otherwise('/login');
 
 });

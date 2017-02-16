@@ -38,17 +38,19 @@ app.controller('loginCtrl', function($scope, $rootScope, $stateParams, $state, d
     $rootScope.getCurrentZone = function(callback){
 		navigator.geolocation.getCurrentPosition(function(pos){
 			var loc = pos;
-			var latRounded = Number(Math.round(pos.coords.latitude +'e2')+'e-2');
-			var longRounded = Number(Math.round(pos.coords.longitude +'e2')+'e-2');
+			var latRounded = Math.abs(Number(Math.round(pos.coords.latitude +'e2'))) % 2; //
+			var longRounded = Math.abs(Number(Math.round(pos.coords.longitude +'e2'))) % 2; //
 			var min = 1;
-			var max = 1;
-			Math.seedrandom(latRounded + "" + longRounded);
-			var zoneID = Math.random() * (max - min) + min;
+			var max = 2;
+			//Math.seedrandom(latRounded);
+			var zoneIDLat = latRounded
+			//Math.seedrandom(longRounded);
+			var zoneIDLong = longRounded
 
 			var readparams = {
 		    	TableName: 'Zone',
 				  Key: {
-				    zoneid: zoneID
+				    zoneid: zoneIDLat + ',' + zoneIDLong
 				  }
 			  
 			};
